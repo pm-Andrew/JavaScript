@@ -1,0 +1,154 @@
+/* NYT Theme Styles */
+:root {
+    --nyt-serif: Georgia, "Times New Roman", serif;
+    --nyt-sans: helvetica, arial, sans-serif;
+    --nyt-black: #000000;
+    --nyt-dark-gray: #333333;
+    --nyt-gray: #666666;
+    --nyt-light-gray: #f7f7f7;
+    --nyt-border-color: #e2e2e2;
+}
+
+body {
+    font-family: var(--nyt-serif);
+    color: var(--nyt-black);
+    background-color: white;
+}
+
+/* Header/Navbar Styles */
+.navbar {
+    border-bottom: 1px solid var(--nyt-border-color);
+    background-color: white !important;
+}
+
+.navbar-brand {
+    font-family: var(--nyt-serif);
+    font-weight: bold;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    border-radius: 0;
+    box-shadow: none !important;
+}
+
+.card:hover {
+    background-color: var(--nyt-light-gray);
+}
+
+.card-title {
+    font-family: var(--nyt-serif);
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--nyt-black);
+}
+
+.card-text {
+    font-family: var(--nyt-serif);
+    color: var(--nyt-gray);
+}
+
+.news-card-img {
+    height: 200px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: white !important;
+    border-bottom: 1px solid var(--nyt-border-color);
+}
+
+.hero .bg-dark {
+    background-color: white !important;
+}
+
+.hero h2 {
+    font-family: var(--nyt-serif);
+    font-weight: bold;
+    color: var(--nyt-black) !important;
+}
+
+.hero p {
+    color: var(--nyt-gray) !important;
+}
+
+/* Badge Styles */
+.badge {
+    border-radius: 0;
+    font-family: var(--nyt-sans);
+    font-weight: 500;
+    padding: 0.5em 0.7em;
+}
+
+
+.badge.bg-light {
+    background-color: var(--nyt-light-gray) !important;
+    color: var(--nyt-gray) !important;
+    border: 1px solid var(--nyt-border-color);
+}
+
+/* Story List Styles */
+.list-group-item {
+    border-color: var(--nyt-border-color) !important;
+}
+
+.list-group-item.active div {
+    background-color: var(--nyt-light-gray) !important;
+}
+
+.list-group-item h3 {
+    color: var(--nyt-black) !important;
+    font-family: var(--nyt-serif);
+    font-weight: bold;
+}
+
+.story-list-container {
+    max-height: 600px;
+}
+
+/* Transitions */
+.transition-all {
+    transition: all 0.2s ease-in-out;
+}
+
+/* /* Responive Testing Markers */
+/* @media (min-width: 576px) {
+    body::before {
+        content: "SM";
+    }
+}
+
+@media (min-width: 768px) {
+    body::before {
+        content: "MD";
+    }
+}
+
+@media (min-width: 992px) {
+    body::before {
+        content: "LG";
+    }
+}
+
+@media (min-width: 1200px) {
+    body::before {
+        content: "XL";
+    }
+}
+
+@media (min-width: 1400px) {
+    body::before {
+        content: "XXL";
+    }
+} */
+
+/* Custom transitions and animations */
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+/* Custom background gradient fallback if needed */
+.bg-dark.bg-gradient {
+    background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+}

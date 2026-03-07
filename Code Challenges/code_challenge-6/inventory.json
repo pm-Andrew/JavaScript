@@ -1,0 +1,31 @@
+{
+    "result": [
+        {
+            "Apple": {
+                "sku": "GRO-BRD-APP-016",
+                "category": "groceries",
+                "description": "Fresh and crisp apples, perfect for snacking or incorporating into various recipes.",
+                "qtyInStock": "150",
+                "price": "$1.00"
+            }
+        },
+        {
+            "Chicken": {
+                "sku": "GRO-BRD-CHI-019",
+                "category": "groceries",
+                "description": "Fresh and tender chicken meat, suitable for various culinary preparations.",
+                "qtyInStock": "15",
+                "price": "$13.15"
+            }
+        },
+        {
+            "Cooking Oil": {
+                "sku": "GRO-BRD-COO-020",
+                "category": "groceries",
+                "description": "Versatile cooking oil suitable for frying, sautéing, and various culinary applications.",
+                "qtyInStock": "20",
+                "price": "$6.99"
+            }
+        }
+    ]
+}

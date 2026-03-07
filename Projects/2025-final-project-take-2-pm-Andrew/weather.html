@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <script defer src="js/weather.js"></script> -->
+    <title>Local Weaether</title>
+</head>
+
+<body>
+    <main class="bg-primary shadow-lg">
+        <h1 class="mb-3 p-3 text-center fw-bold text-light-subtle">Local Weaether</h1>
+
+        <div class="container mb-3 bg-gradient rounded-5">
+            <div class="row p-2 align-middle">
+                <div class="col-4 col-sm-4 col-xxl text-center">
+                    <label class="col-9 mb-1 fw-light" for="zip">Enter Zip for Weather Reports</label>
+                    <input class="col-9 col-sm-9 mb-2 border border-3" type="text" id="zip" placeholder="Enter ZIP Code">
+                    <button type="button" class="col-5 col-sm-8 btn mb-3 btn-warning shadow fw-semibold" id="getWeather">Current</button>
+                    <button type="button" class="col-5 col-sm-8 mb-3 btn btn-light shadow fw-semibold" id="getForecast">Forecast</button>
+                    <a href="index.html" class="col-5 btn"><img src="images/poweredby_nytimes_30a.png" alt="nyt-logo">
+                        <p class="text-light">Back to News</p>
+                    </a>
+                </div>
+                <!-- Current Weather -->
+                <div class="col-8 invisible">
+                    <div class="p-2 col-12 border-3 border-dark" id="weather">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Forecast Report -->
+        <div class="row">
+            <h2 id="forecast" class="pb-2 mb-4 text-light text-center border-bottom border-warning">.</h2>
+            <div class="col-12 p-2 border border-dark invisible overflow-scrollable">
+                <div id="weatherContainer" class="row justify-content-center gap-3 mt-4"></div>
+            </div>
+        </div>
+        <script defer src="js/weather.js"></script>
+        <img src="images/clipart4316205.png" alt="mountains" class="img-fluid col-12">
+    </main>
+    <footer>
+        Copyright&copy; Andrew Sabourin 2025
+    </footer>
+</body>
+
+</html>

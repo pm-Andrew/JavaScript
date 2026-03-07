@@ -1,0 +1,27 @@
+div ul {
+    display: flex;
+    align-content: center;
+}
+
+li {
+    margin: 15px;
+    padding: 5px;
+    list-style: none;
+    background-color: bisque;
+}
+
+
+ul img {
+    margin-bottom: 30px;
+    padding: 0 15px;
+    border-radius: 30px;
+}
+
+ul p {
+    height: fit-content;
+    margin: 5px;
+    padding: 15px;
+    line-height: 30px;
+    background-color: antiquewhite;
+    border-radius: 25px;
+}

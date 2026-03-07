@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <title>Coding Challenge 13</title>
+</head>
+
+<body class="container bg-success">
+    <main class="row mb-3">
+        <h1 class="mb-3 p-3 text-bg-dark rounded-3">Different Types of Note-Taking Methods</h1>
+        <div id="carousel" class="carousel carousel-dark slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+
+
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="col-12 card mb-3 d-block w-100">
+                        <div class="card-body">
+                            <h2 class="card-title">1. Outline Method</h2>
+                            <ul>
+                                <li class="card-text"><strong>Structure:</strong> Hierarchical, using bullet points or numbers.</li>
+                                <li class="card-text"><strong>Best for:</strong> Lectures or reading with clear organization.</li>
+                            </ul>
+                            <p class="card-text"><strong>Ex.</strong></p>
+                            <pre class="card-text">
+                    I. Main Topic
+                    A. Subtopic
+                        1. Detail
+                        2. Another Detail
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-12 card mb-3 d-block w-100">
+                        <div class="card-body">
+                            <h2 class="card-title">2. Cornell Method</h2>
+                            <p class="card-text"><strong>Structure:</strong> Divides the page into 3 sections: Cue column, Note-taking column, and Summary section.</p>
+                            <p class="card-text"><strong>Best for:</strong> Active recall and exam prep.</p>
+                            <caption><strong>Example:</strong></caption>
+                            <table class="table table-striped">
+                                <th><strong>Cues / Questions</strong></th>
+                                <th><strong>Notes</strong></th>
+                                <tr>
+                                    <td>
+                                        What is photosynthesis?<br>
+                                        Why is sunlight important?
+                                    </td>
+                                    <td>
+                                        Photosynthesis is the process by which green plants use sunlight to synthesize food from carbon dioxide and water.<br>
+                                        Sunlight provides energy for the reaction.<br>
+                                        Occurs in chloroplasts.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><strong>Summary:</strong><br>
+                                        Photosynthesis converts sunlight, water, and CO₂ into energy (glucose), taking place in plant cell chloroplasts.
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-12 card mb-3 d-block w-100">
+                        <div class="card-body">
+                            <h2 class="card-title">3. Sentence Method</h2>
+                            <p><strong>Structure:</strong> Each new thought or fact gets its own line or sentence.</p>
+                            <p><strong>Best for:</strong> Fast-paced lectures when structure is unclear.</p>
+                            <p><strong>Example:</strong></p>
+                            <pre>
+                    1. The mitochondria is the powerhouse of the cell.
+                    2. It converts glucose into ATP through cellular respiration.
+                    3. ATP is the main energy currency of the cell.
+                    4. This process requires oxygen and releases carbon dioxide.
+                        </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-12 card mb-3 d-block w-100">
+                        <div class="card-body">
+                            <h2 class="card-title">4. Boxing Method</h2>
+                            <p><strong>Structure:</strong> Ideas grouped into boxes on the page.</p>
+                            <p><strong>Best for:</strong> Tablets or digital notes, organizing distinct sections clearly.</p>
+                            <p><strong>Example:</strong></p>
+                            <ul class="list-unstyled">
+                                <li>--- Box 1 ---</li>
+                                <li>
+                                    <strong>Definition:</strong> A function is a reusable block of code that performs a specific task.
+                                </li>
+                                <li>--- Box 2 ---</li>
+                                <li>
+                                    <strong>Syntax:</strong>
+                                    <code>def function_name(parameters):</code>
+                                    <code>&nbsp;&nbsp;&nbsp;&nbsp;# function body</code>
+                                </li>
+                                </p>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-12 card mb-3 d-block w-100">
+                        <div class="card-body">
+                            <h2 class="card-title">5. Charting Method</h2>
+                            <p class="card-text"><strong>Structure:</strong> Notes organized into a table with columns.</p>
+                            <p class="card-text"><strong>Best for:</strong> Comparing topics, especially for classes like history or science.</p>
+                            <p><strong>Example:</strong></p>
+                            <div class="card-text">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Topic</th>
+                                            <th>Definition</th>
+                                            <th>Example</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Concept 1</td>
+                                            <td>Descrip.</td>
+                                            <td>Ex.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Concept 2</td>
+                                            <td>Descrip.</td>
+                                            <td>Ex.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <!-- Note-taking area -->
+    <aside class="container mb-3 p-6 text-bg-dark rounded-3">
+        <div class="row border border-outline-light p-3 rounded-2">
+            <div class="col-6">
+                <div class="col-9">
+                    <div class="header mb-1">Note-taking Practice</div>
+                    <p class="">Taking notes isn't just for school!</p>
+                </div>
+                <div class="mb-3">
+                    <label for="jot">Try taking some notes here</label>
+                    <textarea class="form-control" name="jot" id="jot" label="jot" placeholder="Leave a Note"></textarea>
+                </div>
+                <div class="col-8 mb-3">
+                    <button type="reset" id="resetBtn" class="btn btn-danger btn-lg mb-3">Reset</button>
+                    <button type="submit" id="submitBtn" class="btn btn-success btn-lg mb-3">Save</button>
+                    <p class="fw-lighter">Reset deletes everything careful!</p>
+                </div>
+            </div>
+            <div class="col-6 mb-4 p-3 text-bg-light rounded-3">
+                <div class="row">
+                    <h2 class="col-4 mb-3 px-2">Notebook</h2>
+                </div>
+                <div id="notebook" class="card"></div>
+            </div>
+        </div>
+    </aside>
+    <!-- JavaScript -->
+    <script defer src="js/script.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <footer>
+        <p>Copyright&copy;2025 Andrew Sabourin</p>
+    </footer>
+</body>
+
+</html>

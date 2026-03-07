@@ -1,0 +1,42 @@
+html, body {
+    background-color: #648b5f;
+    color: #000123;
+    display: flex;
+}
+
+.container, .message-board {
+    background-color: #fff;
+    height: min-content;
+    width: min-content;
+    padding: .85rem;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+
+.container {
+    margin: 2rem 0 0 2rem;
+}
+
+.message-board {
+    margin: 2rem 0 0 .5rem;
+
+}
+
+.container p, .container h2 {
+    /* border: 1px solid red; */
+    margin: 2rem;
+}
+
+.mood-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mood-container button {
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #648b5f;
+    border-radius: 5px;
+    color: white;
+}

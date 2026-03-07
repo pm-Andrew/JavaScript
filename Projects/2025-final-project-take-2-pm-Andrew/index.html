@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYT News Stories</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/nyt.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="shortcut icon" href="images/143900_new_york_times_icon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="navbar bg-white border-bottom py-2">
+        <div class="container">
+            <h1 class="navbar-brand m-0">
+                <a href="https://www.nytimes.com/"><img src="images/NewYorkTimes.svg.png" class="nyt-logo" alt="The New York Times"></a>
+            </h1>
+            <a href="weather.html"><button type="button" class="col btn btn-primary shadow fw-semibold" id="getWeather">Get Weather</button></a>
+
+        </div>
+
+    </header>
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg py-2 border-bottom">
+        <div class="container d-flex justify-content-between align-items-center">
+            <select id="sectionSelect" class="form-select form-select-sm border-0" aria-label="Select news section">
+                <option value="home">Home</option>
+                <option value="arts">Arts</option>
+                <option value="business">Business</option>
+                <option value="dining">Dining</option>
+                <option value="fashion">Fashion</option>
+                <option value="health">Health</option>
+                <option value="opinion">Opinion</option>
+                <option value="politics">Politics</option>
+                <option value="realestate">Real Estate</option>
+                <option value="science">Science</option>
+                <option value="sports">Sports</option>
+                <option value="technology">Technology</option>
+                <option value="world">World</option>
+            </select>
+            <button id="refreshButton" class="btn btn-outline-dark btn-sm" aria-label="Refresh stories">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+                </svg>
+                <span class="ms-1">Refresh</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <div id="newsContainer">
+            <!-- News stories will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <footer class="mt-5 py-4 border-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Andrew Sabourin</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="https://developer.nytimes.com/" class="text-decoration-none">
+                        <img src="images/poweredby_nytimes_200c.png" height="30" alt="Data provided by The New York Times">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/nyt.js"></script>
+</body>
+
+</html>

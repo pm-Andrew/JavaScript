@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js"></script>
+    <title>Project 2</title>
+</head>
+
+<body class="form-control-sm container text-bg-secondary">
+    <div class="row my-5">
+
+        <!-- Section and Div -->
+        <div class="row align-items-start">
+            <header class="col-12">
+                <h1>Order Form - "I took CS50" Shirt</h1>
+                <hr>
+                <div id="errorBtop" class="col-6 ms-0 bg-danger-subtle border border-danger mb-3 text-black fw-medium rounded-3 shadow">
+                    <p class="px-1 mt-3">Please Fill out all fields. All information is needed.</p>
+                </div>
+            </header>
+            <div class="col-6">
+                <form name="order" id="order" action="https://ctec.clark.edu/~belgort/formprocessing/processform.php" method="POST" class="p-5 text-bg-primary border border-primary-subtle mb-3 rounded-3 shadow-lg">
+                    <!-- Starting with 'personal' info -->
+                    <section>
+                        <h2>Please Fill Out Shipping information</h2>
+                        <p clas>* All Fields Required</p>
+                        <div class="mb-3">
+                            <label for="firstname" class="col-form-label-lg">First Name</label>
+                            <input type="text" name="firstname" id="firstname" maxlength="20" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastname" class="col-form-label-lg">Last Name</label>
+                            <input type="text" name="lastname" id="lastname" maxlength="20" class="form-control" placeholder="Last Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="col-form-label-lg">Address</label>
+                            <input type="text" name="address" id="address" maxlength="40" class="form-control" placeholder="1234 Main St">
+                        </div>
+                        <div class="mb-3">
+                            <label for="city" class="col-form-label-lg">City</label>
+                            <input type="text" name="city" id="city" maxlength="30" class="form-control" placeholder="City">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="state" class="col-form-label-lg">State</label>
+                            <select name="state" id="state" class="form-select">
+                                <option value="">Select a state</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <hr class="mb-3">
+
+                    <!-- Here is the start of product information -->
+                    <div class="mb-3">
+                        <h3 class="text-decoration-underline">Shirt</h3>
+                        <p class="mb-3">Select Shirt Color Size & How Many</p>
+                        <label for="product" class="col-form-label-lg">Shirt</label>
+                        <select name="product" id="product" class="mb-3 form-select">
+                            <option value=""></option>
+                            <option value="b-2">Blue - 2X</option>
+                            <option value="b-x">Blue - XL</option>
+                            <option value="b-l">Blue - L</option>
+                            <option value="b-m">Blue - M</option>
+                            <option value="b-s">Blue - S</option>
+                            <option value="g-2">Green - 2X</option>
+                            <option value="g-x">Green - XL</option>
+                            <option value="g-l">Green - L</option>
+                            <option value="g-m">Green - M</option>
+                            <option value="g-s">Green - S</option>
+                            <option value="blk-2">Black - 2X</option>
+                            <option value="blk-x">Black - XL</option>
+                            <option value="blk-l">Black - L</option>
+                            <option value="blk-m">Black - M</option>
+                            <option value="blk-s">Black - S</option>
+                        </select>
+
+                        <!-- Number quantity input -->
+                        <div class="mb-3">
+                            <label for="quantity" class="col-form-label-lg">Quantity</label>
+                            <input type="number" name="quantity" id="quantity" max="5" min="0" class=" form-control">
+                        </div>
+                    </div>
+
+                    <!-- Radio button - Contact info -->
+                    <fieldset>
+                        <legend>Contact</legend>
+                        <div class="mb-3 input-group">
+                            <div class="input-group-text w-25 border border-primary-subtle">
+                                <input type="radio" name="contact[]" id="phone" class="mx-1" value="Phone" checked>
+                                <label for="phone">Phone</label>
+                            </div>
+                            <div class="input-group-text w-25 border border-primary-subtle">
+                                <input type="radio" name="contact[]" id="text" class="mx-1" value="Text">
+                                <label for="text">Text</label>
+                            </div>
+                            <div class="input-group-text w-25 border border-primary-subtle">
+                                <input type="radio" name="contact[]" id="email" class="mx-1" value="Email">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-group-text w-25 border border-primary-subtle">
+                                <input type="radio" name="contact[]" id="none" class="mx-1" value="none">
+                                <label for="none">None</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Interest -->
+                    <fieldset>
+                        <legend>Interests</legend>
+                        <div class="mb-3">
+                            <p>Out of the options, please select all that apply</p>
+                            <div class="col-4">
+                                <div class="form-check">
+                                    <input type="checkbox" name="interest[]" id="web-development" value="web-development" class="form-check-input">
+                                    <label for="web-development" class="form-check-label mb-1">Web Development</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" name="interest[]" id="graphic-design" value="graphic-design" class="form-check-input">
+                                    <label for="graphic-design" class="form-check-label mb-1">Graphic Design</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" name="interest[]" id="cyber-security" value="cyber-security" class="form-check-input">
+                                    <label for="cyber-security" class="form-check-label mb-1">Cyber Security</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" name="interest[]" id="design" value="design" class="form-check-input">
+                                    <label for="design" class="form-check-label mb-1">Design</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Feedback -->
+                    <div class="mb-3">
+                        <label for="feedback" class="col-form-control">Feedback</label>
+                        <textarea name="feedback" id="feedback" placeholder="Feedback" class="form-control border border-3 border-primary-subtle"></textarea>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="mb-3">
+                        <hr>
+                        <label for="terms" class="col-form-label-lg">Terms & Conditions</label>
+                        <input type="checkbox" name="terms" id="terms">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <input type="submit" value="Submit" class="form-control-sm col-4 btn btn-light shadow border-primary-subtle border-3">
+                </form>
+                <div id="errorBbot" class="bg-danger-subtle border border-danger mb-3 text-black fw-medium rounded-3 shadow">
+                    <p class="px-1 mt-3">Don't forget to see if you forgot anything</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="bg-primary w-100 border border-primary-subtle border-3 rounded-3 shadow">
+                    <h2 class="m-3 px-4lh-1">Welcome to the CS50 Community</h2>
+                    <img src="img/mockup-a9345621.webp" alt="Male and Female showing off their CS50 shirts, color of shirt is black" class="img-fluid rounded-1">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
