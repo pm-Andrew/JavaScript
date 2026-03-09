@@ -1,14 +1,17 @@
+// variables that establish starting points but will change
 let xp = 0;
 let health = 100;
 let gold = 50;
 let currentWeapon = 0;
+// variables that are changing 
 let fighting;
 let monsterHealth;
 let inventory = ["stick"];
-
+// creating button selectors
 const button1 = document.querySelector('#button1');
 const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
+// checking the changes 
 const text = document.querySelector("#text");
 const xpText = document.querySelector("#xpText");
 const healthText = document.querySelector("#healthText");
@@ -16,12 +19,16 @@ const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
+
+// creating an array of weapons
 const weapons = [
   { name: 'stick', power: 5 },
   { name: 'dagger', power: 30 },
   { name: 'claw hammer', power: 50 },
   { name: 'sword', power: 100 }
 ];
+
+// creating an array of monsters
 const monsters = [
   {
     name: "slime",
@@ -39,6 +46,7 @@ const monsters = [
     health: 300
   }
 ]
+// array of locations 
 const locations = [
   {
     name: "town square",
@@ -76,11 +84,11 @@ const locations = [
     "button functions": [restart, restart, restart],
     text: "You die. ☠️"
   },
-  { 
-    name: "win", 
-    "button text": ["REPLAY?", "REPLAY?", "REPLAY?"], 
-    "button functions": [restart, restart, restart], 
-    text: "You defeat the dragon! YOU WIN THE GAME! 🎉" 
+  {
+    name: "win",
+    "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
+    "button functions": [restart, restart, restart],
+    text: "You defeat the dragon! YOU WIN THE GAME! 🎉"
   },
   {
     name: "easter egg",
@@ -95,6 +103,7 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
+// Creating a function that changes 
 function update(location) {
   monsterStats.style.display = "none";
   button1.innerText = location["button text"][0];
@@ -105,30 +114,30 @@ function update(location) {
   button3.onclick = location["button functions"][2];
   text.innerText = location.text;
 }
-
+// changing back to location 0 
 function goTown() {
   update(locations[0]);
 }
-
+// changing back to location 1
 function goStore() {
   update(locations[1]);
 }
-
+// changing back to location 2
 function goCave() {
   update(locations[2]);
 }
-
+// buying health
 function buyHealth() {
-  if (gold >= 10) {
+  if (gold >= 10) { // if 10 or greater than
     gold -= 10;
-    health += 10;
-    goldText.innerText = gold;
-    healthText.innerText = health;
-  } else {
+    health += 10; // add 10pts of health
+    goldText.innerText = gold; // update browser side gold text
+    healthText.innerText = health; // update browser side health text
+  } else { // if gold requirements not met
     text.innerText = "You do not have enough gold to buy health.";
   }
 }
-
+// 
 function buyWeapon() {
   if (currentWeapon < weapons.length - 1) {
     if (gold >= 30) {
@@ -189,7 +198,7 @@ function attack() {
   text.innerText += " You attack it with your " + weapons[currentWeapon].name + ".";
   health -= getMonsterAttackValue(monsters[fighting].level);
   if (isMonsterHit()) {
-    monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;    
+    monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
   } else {
     text.innerText += " You miss.";
   }
