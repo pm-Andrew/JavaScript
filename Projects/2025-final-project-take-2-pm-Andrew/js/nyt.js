@@ -1,5 +1,5 @@
 // NYT API key & URL
-const API_KEY = '<API-KEY>'; // removed API for security
+const API_KEY = '<API_KEY_HERE>'; // removed API for security
 const BASE_URL = 'https://api.nytimes.com/svc/topstories/v2'
 
 // DOM elements

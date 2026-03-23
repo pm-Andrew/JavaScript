@@ -6,7 +6,7 @@
 
 // Declare Variables
 const weatherContent = document.querySelector('#weather');
-const API_KEY = '<API KEY>';
+const API_KEY = '<API_KEY_HERE>';
 
 const getLatLon = (data, zipCode) => {
     // Check to see if an error occurred
@@ -84,7 +84,7 @@ const getCurrentWeather = (data) => {
                                         <h2 class="mb-1 fs-6">${data.name}</h2>
                                         <p class="mb-1">${dateStr} ${timeStr}</p>
                                     </div>
-                                    <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="${data.weather[0].description} icon" class="col-4 bg-primary-subtle rounded-3">
+                                    <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="${data.weather[0].description} icon" class="col-4 bg-primary-subtle rounded-3">
                                     <p class="text-capitalize ps-2 fs-semibold mt-2">${data.weather[0].description}</p>
                                     <h3 class="display-3 mb-2">${Math.round(data.main.temp)}°F</h3>
                                 </div>
@@ -96,7 +96,7 @@ const getCurrentWeather = (data) => {
                                         <li class="mb-1"><strong>Wind Speed</strong> ${Math.round(data.wind.speed)} mph</li>
                                         <li class="mb-1"><strong>Wind Gust</strong> ${Math.round(data.wind.deg)}°</li>
                                         <li class="mb-1"><strong>Cloud Cov.</strong> ${Math.round(data.clouds.all)} %</li>
-                                        <l class="mb-1"><strong>Sunrise</strong> ${sunRise}</li>
+                                        <li class="mb-1"><strong>Sunrise</strong> ${sunRise}</li>
                                         <li><strong>Sunset</strong> ${sunSet}</li>
                                     </ul>
                                 </div>
@@ -113,7 +113,7 @@ const getCurrentWeather = (data) => {
 // display the 5 day weather forecast
 const getWeatherForecast = () => {
     // api Key
-    const API_KEY = '<API key'
+    const API_KEY = '<API_KEY_HERE>'
     let zip = document.querySelector("#zip")
     // get zipcode value
     zip = zip.value.trim();
@@ -121,7 +121,7 @@ const getWeatherForecast = () => {
     // http://api.openweathermap.org/geo/1.0/zip?zip={zip code},{country code}&appid={API key}
 
     // API
-    let url = `http://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${API_KEY}&units=imperial`
+    let url = `https://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${API_KEY}&units=imperial`
 
     // fetch info From GEO API (zip code searching)
     fetch(url)
@@ -133,7 +133,7 @@ const getWeatherForecast = () => {
             let lon = data['lon']
 
             // API
-            url = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=5&appid=${API_KEY}&units=imperial`
+            url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=40&appid=${API_KEY}&units=imperial`
 
             // fetch info From API
             fetch(url)
@@ -157,21 +157,43 @@ const getWeatherForecast = () => {
                     forecast.innerText = `Forecast for ${data.city.name}`
                     forecast.style.display = 'block';
 
-                    // forEach #day find the date build a card based on forecast for that day and append to the DOM
-                    data.list.forEach((day, i) => {
-                        // ln 27 -function
-                        const dayOfWeek = getDayNameFromToday(i);
-                        // ln 168 -function
-                        const card = createWeatherCard(i, day, dayOfWeek);
-                        // ln 153 -location in the DOM
-                        container.appendChild(card);
+                    // Group 3-hourly forecast data into daily forecasts
+                    const dailyForecasts = {};
+                    data.list.forEach((entry) => {
+                        const date = new Date(entry.dt * 1000);
+                        const dateStr = date.toLocaleDateString();
+                        if (!dailyForecasts[dateStr]) {
+                            dailyForecasts[dateStr] = {
+                                noonEntry: null,
+                                minTemp: entry.main.temp_min,
+                                maxTemp: entry.main.temp_max
+                            };
+                        }
+                        dailyForecasts[dateStr].minTemp = Math.min(dailyForecasts[dateStr].minTemp, entry.main.temp_min);
+                        dailyForecasts[dateStr].maxTemp = Math.max(dailyForecasts[dateStr].maxTemp, entry.main.temp_max);
+                        const hour = date.getHours();
+                        if (!dailyForecasts[dateStr].noonEntry || Math.abs(hour - 12) < Math.abs(new Date(dailyForecasts[dateStr].noonEntry.dt * 1000).getHours() - 12)) {
+                            dailyForecasts[dateStr].noonEntry = entry;
+                        }
+                    });
+                    let dayIndex = 0;
+                    Object.keys(dailyForecasts).forEach((dateStr) => {
+                        if (dayIndex < 5) {
+                            const dayData = dailyForecasts[dateStr];
+                            const date = new Date(dayData.noonEntry.dt * 1000);
+                            const offset = Math.floor((date - new Date()) / (1000 * 60 * 60 * 24));
+                            const dayOfWeek = getDayNameFromToday(offset);
+                            const card = createWeatherCard(dayIndex, dayData.noonEntry, dayOfWeek, dayData.minTemp, dayData.maxTemp);
+                            container.appendChild(card);
+                            dayIndex++;
+                        }
                     });
                 })
         })
 }
 
 // building a card for each day
-let createWeatherCard = ((dayId, dayData, dayOfWeek) => {
+let createWeatherCard = ((dayId, dayData, dayOfWeek, dailyMin, dailyMax) => {
     // create a div container
     const card = document.createElement("div");
     // Bootstrap styling
@@ -190,7 +212,7 @@ let createWeatherCard = ((dayId, dayData, dayOfWeek) => {
     // icon
     const icon = document.createElement("img");
     // set the src attribute using the data from the API
-    icon.src = `http://openweathermap.org/img/wn/${dayData.weather[0].icon}.png`;
+    icon.src = `https://openweathermap.org/img/wn/${dayData.weather[0].icon}.png`;
     // set alt text
     icon.alt = `${dayData.weather[0].description} - Icon`;
     card.appendChild(icon);
@@ -199,8 +221,8 @@ let createWeatherCard = ((dayId, dayData, dayOfWeek) => {
     const tempH = document.createElement("h3");
     // Bootstrap styling
     tempH.className = "h3 text-center";
-    // get temp and round decimal
-    tempH.innerText = `${Math.round(dayData.temp.day)}°F`;
+    // get temp and round decimal (using the noon entry temp)
+    tempH.innerText = `${Math.round(dayData.main.temp)}°F`;
     card.appendChild(tempH);
 
     // decription
@@ -218,13 +240,13 @@ let createWeatherCard = ((dayId, dayData, dayOfWeek) => {
 
     // create an array with info from API templated in for versibility
     const details = [
-        `Low: ${Math.round(dayData.temp.min)}°F`,
-        `High: ${Math.round(dayData.temp.max)}°F`,
-        `Feels like: ${Math.round(dayData.feels_like.day)}°F`,
-        `Humidity: ${dayData.humidity}%`,
-        `Clouds Coverage: ${dayData.clouds}%`,
-        `Wind Speed: ${Math.round(dayData.speed)} mph`,
-        `Wind Direction: ${dayData.deg}°`, // consider changing this to cardinal directions
+        `Low: ${Math.round(dailyMin)}°F`,
+        `High: ${Math.round(dailyMax)}°F`,
+        `Feels like: ${Math.round(dayData.main.feels_like)}°F`,
+        `Humidity: ${dayData.main.humidity}%`,
+        `Clouds Coverage: ${dayData.clouds.all}%`,
+        `Wind Speed: ${Math.round(dayData.wind.speed)} mph`,
+        `Wind Direction: ${dayData.wind.deg}°`, // consider changing this to cardinal directions
         `Precipitation: ${Math.round(dayData.pop * 100)}%`
     ];
 
@@ -249,7 +271,7 @@ document.querySelector('#getWeather').addEventListener('click', () => {
     let zipCode = document.querySelector('#zip').value;
 
     // First call the geolocation API to get the latitude and longitude of the zip code
-    let url = `http://api.openweathermap.org/geo/1.0/zip?zip=${zipCode},US&appid=${API_KEY}&units=imperial`;
+    let url = `https://api.openweathermap.org/geo/1.0/zip?zip=${zipCode},US&appid=${API_KEY}&units=imperial`;
 
     fetch(url)
         .then(response => response.json())
@@ -259,7 +281,7 @@ document.querySelector('#getWeather').addEventListener('click', () => {
             const geo = getLatLon(data, zipCode);
 
             // Now get current weather data
-            url = `http://api.openweathermap.org/data/2.5/weather?lat=${geo[0]}&lon=${geo[1]}&appid=${API_KEY}&units=imperial`;
+            url = `https://api.openweathermap.org/data/2.5/weather?lat=${geo[0]}&lon=${geo[1]}&appid=${API_KEY}&units=imperial`;
 
             fetch(url)
                 .then(response => response.json())
