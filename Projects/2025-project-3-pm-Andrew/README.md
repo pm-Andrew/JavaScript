@@ -6,8 +6,7 @@ additional data points beyond the base requirements.
 
 ## Features
 
-- Current weather: temperature, feels like, high/low, humidity, wind speed,
-  plus 2 additional data points
+- Current weather: temperature, feels like, high/low, humidity, wind speed, plus 2 additional data points
 - 5-day forecast with the same data set, triggered by a separate button
 - Forecast displayed differently from the provided starter code
 - All JavaScript commented throughout

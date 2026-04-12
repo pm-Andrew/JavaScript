@@ -6,6 +6,7 @@ the form), focus management on the first invalid field, and submit button
 state control.
 
 ## Features
+
 - Validates all fields: text inputs, select menus, radio buttons,
   checkboxes, and textarea
 - Error buckets render above and below the form on failed submission
@@ -20,6 +21,7 @@ state control.
 ![Form screenshot](/assets/Proj-2_126.png)
 
 ## Technologies
+
 - Vanilla JavaScript (ES6+)
 - HTML5 / CSS3
 - Bootstrap 5
