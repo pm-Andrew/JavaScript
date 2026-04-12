@@ -19,7 +19,7 @@ without a full page reload, and refresh stories on demand.
 ![Dashboard screenshot](/assets/Final_Proj-126.png)
 
 <!-- Uncomment if you have a screen recording -->
-[Watch demo](/assets/126Final.mov)
+[Watch demo](https://www.loom.com/share/ca7d0fc3a6f140caad92922efbe326f8)
 
 ## Technologies
 
